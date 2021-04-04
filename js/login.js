@@ -1,13 +1,14 @@
-var validations = document.getElementById('validations');
-var errorMessage = ' '
+//var validations = document.getElementById('validations');
+var validations2 = document.getElementById('items');
 
 var foundForm = function() {
     if (document.getElementById('registerForm')) {
         return true;
     }
     else {
-        validations.textContent = 'form is not found';
-        validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Form is not found';
+        newError.style.color = 'red';
     }
 }
 foundForm();
@@ -18,8 +19,9 @@ var amountInputs = function() {
         return true;
     }
     else {
-        validations.textContent = 'There are missing inputs';
-        validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'There are missing inputs';
+        newError.style.color = 'red';
     }
 }
 amountInputs();
@@ -29,44 +31,62 @@ var requiredFields = function() {
       return true;
     }
     else {
-      validations.textContent = 'missing required';
-      validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Missing required';
+        newError.style.color = 'red';
     }
-  }
-  requiredFields()
+}
+requiredFields();
 
-  var foundLabel1 = function() {
+
+var foundLabel1 = function() {
     if (document.querySelector('.label1')) {
       return true;
     }
     else {
-      validations.textContent = 'missing label';
-      validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Missing label';
+        newError.style.color = 'red';
     }
-  }
-  foundLabel1();
-  
-  var foundLabel2 = function() {
+}
+foundLabel1();
+
+var foundLabel2 = function() {
     if (document.querySelector('.label2')) {
       return true;
     }
     else {
-      validations.textContent = 'missing label';
-      validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Missing label';
+        newError.style.color = 'red';
     }
-  }
-  foundLabel2();
+}
+foundLabel2();
 
 var foundLoginButton = function() {
     if (document.querySelector('.login-button')) {
         return true;
     }
     else {
-      validations.textContent = 'missing login button';
-      validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Missing login button';
+        newError.style.color = 'red';
     }
 }
 foundLoginButton();
+
+/*var contentButton = function() {
+    var loginButton = document.querySelector('.login-button[textContent]');
+    if (loginButton =='Log in'){
+        return true;
+    }
+    else {
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Incorrect content Log in button';
+        newError.style.color = 'red';
+    }
+}
+contentButton();*/
 
 var correctLink = function(){
     var link = document.querySelector('a');
@@ -74,20 +94,19 @@ var correctLink = function(){
         return true;
     }
     else {
-        validations.textContent = 'incorrect link';
-        validations.style.color = 'red';
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Incorrect link';
+        newError.style.color = 'red';
     }
 }
 correctLink();
 
 
-
-var validateAll = function (){
-    if (foundForm() == true && amountInputs() == true && requiredFields() && foundLabel1() == true && foundLabel2() == true && foundLoginButton() == true && correctLink() == true){
-      validations.textContent =  'All validations have passed';
+var validateAll = function() {
+    if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLoginButton() == true && correctLink() == true){
+    var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Every validation has passed';
+        newError.style.color = 'green';
     }
-    else {
-      validations.textcontent = errorMessage;
-    }
-  }
-  validateAll();
+}
+validateAll();
