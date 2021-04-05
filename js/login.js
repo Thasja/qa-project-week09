@@ -75,9 +75,9 @@ var foundLoginButton = function() {
 }
 foundLoginButton();
 
-/*var contentButton = function() {
-    var loginButton = document.querySelector('.login-button[textContent]');
-    if (loginButton =='Log in'){
+var contentButton = function() {
+    var loginButton = document.querySelector('.login-button').textContent;
+    if (loginButton == 'Log in'){
         return true;
     }
     else {
@@ -86,7 +86,7 @@ foundLoginButton();
         newError.style.color = 'red';
     }
 }
-contentButton();*/
+contentButton();
 
 var correctLink = function(){
     var link = document.querySelector('a');
@@ -103,7 +103,7 @@ correctLink();
 
 
 var validateAll = function() {
-    if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLoginButton() == true && correctLink() == true){
+    if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLoginButton() == true && contentButton() == true &&correctLink() == true){
     var newError = validations2.appendChild(document.createElement('li'));
         newError.textContent = 'Every validation has passed';
         newError.style.color = 'green';

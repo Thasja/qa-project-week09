@@ -97,8 +97,34 @@ var foundSubmitButton = function() {
 }
 foundSubmitButton();
 
+var contentResetButton = function() {
+  var resetButton = document.querySelector('.reset-button').textContent;
+  if (resetButton == 'Reset'){
+      return true;
+  }
+  else {
+      var newError = validations.appendChild(document.createElement('li'));
+      newError.textContent = 'Incorrect content Reset button';
+      newError.style.color = 'red';
+  }
+}
+contentResetButton();
+
+var contentSubmitButton = function() {
+  var submitButton = document.querySelector('.submit-button').textContent;
+  if (submitButton == 'Submit'){
+      return true;
+  }
+  else {
+      var newError = validations.appendChild(document.createElement('li'));
+      newError.textContent = 'Incorrect content Submit button';
+      newError.style.color = 'red';
+  }
+}
+contentSubmitButton();
+
 var validateAll = function(){
-  if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLabel3() == true && foundLabel4() == true && foundSubmitButton() == true) {
+  if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLabel3() == true && foundLabel4() == true && foundSubmitButton() == true && contentResetButton() == true && contentSubmitButton() == true) {
     var newError = validations.appendChild(document.createElement('div'));
     newError.textContent = 'Every validation has passed';
     newError.style.color = 'green';
