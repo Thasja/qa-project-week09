@@ -25,17 +25,60 @@ var amountInputs = function() {
 }
 amountInputs();
 
-var requiredFields = function() {
-  if (document.querySelector('input[required]')) {
+var requiredFields1 = function() {
+  var required1 = document.getElementById('register-email-input');
+  if (required1.hasAttribute('required')) {
     return true;
   }
   else {
-    var newError = validations.appendChild(document.createElement('div'));
+    var newError = validations.appendChild(document.createElement('li'));
     newError.textContent = 'Missing required';
     newError.style.color = 'red';
   }
 }
-requiredFields();
+requiredFields1();
+  
+var requiredFields2 = function() {
+  var required2 = document.getElementById('register-fullName-input');
+  if (required2.hasAttribute('required')) {
+    return true;
+  }
+  else {
+    var newError = validations.appendChild(document.createElement('li'));
+    newError.textContent = 'Missing required';
+    newError.style.color = 'red';
+  }
+}
+requiredFields2();
+
+var requiredFields3 = function() {
+  var required2 = document.getElementById('register-password-input');
+  if (required2.hasAttribute('required')) {
+    return true;
+  }
+  else {
+    var newError = validations.appendChild(document.createElement('li'));
+    newError.textContent = 'Missing required';
+    newError.style.color = 'red';
+  }
+}
+requiredFields3();
+
+var requiredFields4 = function() {
+  var required2 = document.getElementById('register-confirm-password-input');
+  if (required2.hasAttribute('required')) {
+    return true;
+  }
+  else {
+    var newError = validations.appendChild(document.createElement('li'));
+    newError.textContent = 'Missing required';
+    newError.style.color = 'red';
+  }
+}
+requiredFields4();
+
+
+
 
 var foundLabel1 = function() {
   if (document.querySelector('.label1')) {
@@ -124,7 +167,7 @@ var contentSubmitButton = function() {
 contentSubmitButton();
 
 var validateAll = function(){
-  if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLabel3() == true && foundLabel4() == true && foundSubmitButton() == true && contentResetButton() == true && contentSubmitButton() == true) {
+  if (foundForm() == true && amountInputs() == true && requiredFields1() == true && requiredFields2() == true && requiredFields3() == true && requiredFields4() == true && foundLabel1() == true && foundLabel2() == true && foundLabel3() == true && foundLabel4() == true && foundSubmitButton() == true && contentResetButton() == true && contentSubmitButton() == true) {
     var newError = validations.appendChild(document.createElement('div'));
     newError.textContent = 'Every validation has passed';
     newError.style.color = 'green';

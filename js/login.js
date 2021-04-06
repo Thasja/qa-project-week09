@@ -26,8 +26,9 @@ var amountInputs = function() {
 }
 amountInputs();
 
-var requiredFields = function() {
-    if (document.querySelector('input[required]')) {
+var requiredFields1 = function() {
+var required1 = document.getElementById('login-email-input');
+    if (required1.hasAttribute('required')) {
       return true;
     }
     else {
@@ -36,7 +37,20 @@ var requiredFields = function() {
         newError.style.color = 'red';
     }
 }
-requiredFields();
+requiredFields1();
+
+var requiredFields2 = function() {
+    var required2 = document.getElementById('login-password-input');
+    if (required2.hasAttribute('required')) {
+      return true;
+    }
+    else {
+        var newError = validations2.appendChild(document.createElement('li'));
+        newError.textContent = 'Missing required';
+        newError.style.color = 'red';
+    }
+}
+requiredFields2();
 
 
 var foundLabel1 = function() {
@@ -103,7 +117,7 @@ correctLink();
 
 
 var validateAll = function() {
-    if (foundForm() == true && amountInputs() == true && requiredFields() == true && foundLabel1() == true && foundLabel2() == true && foundLoginButton() == true && contentButton() == true &&correctLink() == true){
+    if ((foundForm() == true) && (amountInputs() == true) && (requiredFields1() == true) && (requiredFields2() == true) && (foundLabel1() == true) && (foundLabel2() == true) && (foundLoginButton() == true) && (contentButton() == true) && (correctLink() == true)){
     var newError = validations2.appendChild(document.createElement('li'));
         newError.textContent = 'Every validation has passed';
         newError.style.color = 'green';

@@ -1,11 +1,11 @@
 .header{
     Background-color:red;
-    text-align:center;
-    height:70px;
+    text-align: center;
+    height: 70px;
     color:blue;
-    font-weight:900px;
+    font-weight: 900px;
     border-bottom: 3px solid black;
-    Margin-top:none;
+    Margin-top: none;
 }
 
 .header h1{
@@ -13,16 +13,16 @@
 }
 
 .register-container{
-    margin-left:200px;
+    margin-left: 200px;
 }
 
 #registerForm{
     background-color:lightgrey;
-    box-sizing:border-box;
-    width:500px;
-    border:1px solid gray;
-    padding-top:30px;
-    padding-bottom:20px;
+    box-sizing: border-box;
+    width: 500px;
+    border: 1px solid gray;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 #registerForm input{
