@@ -2,7 +2,7 @@
 var validations2 = document.getElementById('items');
 
 var foundForm = function() {
-    if (document.getElementById('registerForm')) {
+    if (document.getElementById('loginForm')) {
         return true;
     }
     else {

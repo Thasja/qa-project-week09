@@ -20,11 +20,17 @@
             </div>
             <div class="register-container">
                 <h2>Log in</h2>
-                <form id="registerForm">
-                    <label for="login-email-input" class="label1">Email Address</label>
-                    <input type="email" id="login-email-input" placeholder="Email Address" required>
-                    <label for="login-password-iput" class="label2">Password</label>
-                    <input type="password" id="login-password-input" placeholder="Password"required>
+                <form name="loginForm" id="loginForm">
+                    <div>
+                        <label for="login-email-input" class="label1">Email Address</label>
+                        <input type="email" id="login-email-input" placeholder="Email Address" required>
+                    </div>
+                    <p id="emailError"></p>
+                    <div>
+                        <label for="login-password-iput" class="label2">Password</label>
+                        <input type="password" id="login-password-input" placeholder="Password"required>
+                    </div>
+                    <p id="passwordError"></p>
                     <p>
                         Not yet an account? pleas click <span><a href="register.html">here</a></span> to registrate.
                     </p>
@@ -42,5 +48,6 @@
             </div>
         </footer>
         <script src="js\login.js"></script>
+        <script src="login2.js"></script>
     </body>
 </html>
