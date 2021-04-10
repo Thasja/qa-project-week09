@@ -9,13 +9,13 @@ email.addEventListener('blur', function(e) {
         return true;
     }
     else {
-        emailError.textContent = 'You need to enter a valid Emailadress.';
+        emailError.textContent = 'You need to enter a valid Emailaddress.';
         emailError.style.color = 'red';
     }
 });
 
 email.addEventListener('focus', function(e) {
-   emailError.textContent = '';
+    emailError.textContent = '';
 });
 
 email.addEventListener('focus', function(e){
@@ -26,8 +26,8 @@ email.addEventListener('blur', function(e){
 }, true);
 
 password.addEventListener('blur', function(e) {
-    var correctPass = /(([\d]+[A-Za-z]+)|[A-Za-z]+[\d]+[0-9])/g;
-    if (correctPass.test(e.target.value) && password.value.length >= 8) {
+    var correctPass = /^[0-9a-zA-Z]+$/;
+    if (e.target.value.match(correctPass) && password.value.length >= 8) {
         return true;
     }
     else {
@@ -38,11 +38,11 @@ password.addEventListener('blur', function(e) {
 
 password.addEventListener('focus', function(e) {
     passError.textContent = '';
- });
+});
 
-password.addEventListener('focus', function(e){
+password.addEventListener('focus', function(e) {
     e.target.style.background = 'pink';
 }, true);
-password.addEventListener('blur', function(e){
+password.addEventListener('blur', function(e) {
     e.target.style.background = '';
 }, true);

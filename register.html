@@ -21,13 +21,17 @@
                 <form id="registerForm">
                     <label for="register-email-input" class="label1">Email Address</label> 
                     <input type="email" id="register-email-input" placeholder="Email Address" required>
+                    <p id="emailError"></p>
                     <label for="register-fullName-input" class="label2">Full Name</label>
                     <input type="text" id="register-fullName-input" placeholder="Full Name" required>
+                    <p id="nameError"></p>
                     <label for="register-password-iput" class="label3">Password</label>
                     <input type="password" id="register-password-input" placeholder="Password" required>
+                    <p id="passwordError"></p>
                     <label for="register-confirm-password-input" class=label4>Confirm Password</label>
                     <input type="password" id="register-confirm-password-input" placeholder="Confirm Password" required>
-                    <p>
+                    <p id="passConfirmError"></p>
+                    <p id="link">
                         If you already have an account, please click <span><a href="./login.html">here</a></span> to login.
                     </p>
                     <div class="btn-group">
@@ -45,5 +49,6 @@
             </div>
         </footer>
         <script src=".\js\register.js"></script>
+        <script src="week 10\register2.js"></script>
     </body>
 </html>
