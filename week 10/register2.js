@@ -6,20 +6,24 @@ var password = document.querySelector('#register-password-input');
 var passError = document.querySelector('#passwordError');
 var passConfirm = document.querySelector('#register-confirm-password-input');
 var passConfirmError = document.querySelector('#passConfirmError');
+var validations = document.getElementById('validations');
+var button = document.querySelector('.submit-button');
 
-email.addEventListener('blur', function(e) {
+var emailFormat = function(){
     var at = new RegExp("@");
-    if (at.test(e.target.value)) {
+    if (at.test(email.value)) {
         return true;
     }
     else {
-        emailError.textContent = 'You need to enter a valid Emailaddress.';
+        emailError.textContent = 'You need to enter a valid Email address.';
         emailError.style.color = 'red';
     }
-});
+}
 
-email.addEventListener('focus', function(e) {
-   emailError.textContent = '';
+email.addEventListener('blur', emailFormat);
+
+email.addEventListener('focus', function() {
+    emailError.textContent = '';
 });
 
 email.addEventListener('focus', function(e){
@@ -29,16 +33,19 @@ email.addEventListener('blur', function(e){
     e.target.style.background = '';
 }, true);
 
-fullName.addEventListener('blur', function(e) {
+
+var nameFormat = function(){
     var space = new RegExp(" ");
-    if (space.test(e.target.value.trim()) && fullName.value.length > 6) {
+    if (space.test(fullName.value.trim()) && fullName.value.length > 6) {
         return true;
     }
     else {
         nameError.textContent = 'Not a valid full name. It should have at least 6 characters and 1 space in between.';
         nameError.style.color = 'red';
     }
-});
+}
+
+fullName.addEventListener('blur', nameFormat);
 
 fullName.addEventListener('focus', function(e) {
    nameError.textContent = '';
@@ -51,16 +58,18 @@ fullName.addEventListener('blur', function(e){
     e.target.style.background = '';
 }, true);
 
-password.addEventListener('blur', function(e) {
+var passwordFormat = function(){
     var correctPass = /^[0-9a-zA-Z]+$/;
-    if (e.target.value.match(correctPass) && password.value.length >= 8) {
+    if (password.value.match(correctPass) && password.value.length >= 8) {
         return true;
     }
     else {
         passError.textContent = 'Incorrect password. A password should have at least 8 characters and only numbers and letters.';
         passError.style.color = 'red';
     }
-});
+}
+
+password.addEventListener('blur', passwordFormat);
 
 password.addEventListener('focus', function(e) {
    passError.textContent = '';
@@ -73,15 +82,17 @@ password.addEventListener('blur', function(e){
     e.target.style.background = '';
 }, true);
 
-passConfirm.addEventListener('blur', function(e) {
-    if (e.target.value == password.value) {
+var passConfirmFormat = function(){
+    if (passConfirm.value == password.value) {
         return true;
     }
     else {
         passConfirmError.textContent = 'Does not match with password field.';
         passConfirmError.style.color = 'red';
     }
-});
+}
+
+passConfirm.addEventListener('blur', passConfirmFormat);
 
 passConfirm.addEventListener('focus', function(e) {
    passConfirmError.textContent = '';
@@ -93,3 +104,21 @@ passConfirm.addEventListener('focus', function(e){
 passConfirm.addEventListener('blur', function(e){
     e.target.style.background = '';
 }, true);
+
+button.onclick = function(e) {
+    if (emailFormat() == true && nameFormat() == true && passwordFormat() == true && passConfirmFormat() == true){
+        e.preventDefault();
+        var newError = validations.appendChild(document.createElement('div'));
+        var newError2 = validations.appendChild(document.createElement('div'));
+        var newError3 = validations.appendChild(document.createElement('div'));
+        var newError4 = validations.appendChild(document.createElement('div'));
+        newError.textContent = 'Email address: ' + email.value;
+        newError2.textContent = 'Full name: ' + fullName.value;
+        newError3.textContent = 'Password: ' + password.value;
+        newError4.textContent = 'Confirm Password: ' + passConfirm.value;
+        newError.style.color = 'blue';
+        newError2.style.color = 'blue';
+        newError3.style.color = 'blue';
+        newError4.style.color = 'blue';
+    }
+}
