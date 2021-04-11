@@ -57,6 +57,9 @@ password.addEventListener('blur', function(e) {
 button.onclick = function(e) {
     if (emailFormat() == true && passwordFormat() == true){
         e.preventDefault();
+        fetch('https://jsonplaceholder.typicode.com/users?email=' + email.value)
+        .then (response => response.json())
+        .then (data => console.log(data));
         var newError = validations2.appendChild(document.createElement('li'));
         var newError2 = validations2.appendChild(document.createElement('li'));
         newError.textContent = 'Email adress: ' + email.value;

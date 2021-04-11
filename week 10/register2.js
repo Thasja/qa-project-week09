@@ -108,6 +108,9 @@ passConfirm.addEventListener('blur', function(e){
 button.onclick = function(e) {
     if (emailFormat() == true && nameFormat() == true && passwordFormat() == true && passConfirmFormat() == true){
         e.preventDefault();
+        fetch('https://jsonplaceholder.typicode.com/users?email=' + email.value)
+        .then (response => response.json())
+        .then (data => console.log(data));
         var newError = validations.appendChild(document.createElement('div'));
         var newError2 = validations.appendChild(document.createElement('div'));
         var newError3 = validations.appendChild(document.createElement('div'));
