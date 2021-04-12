@@ -106,8 +106,8 @@ passConfirm.addEventListener('blur', function(e){
 }, true);
 
 button.onclick = function(e) {
+    e.preventDefault();
     if (emailFormat() == true && nameFormat() == true && passwordFormat() == true && passConfirmFormat() == true){
-        e.preventDefault();
         fetch('https://jsonplaceholder.typicode.com/users?email=' + email.value)
         .then (response => response.json())
         .then (data => console.log(data));
