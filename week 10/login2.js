@@ -56,6 +56,7 @@ password.addEventListener('blur', function(e) {
 
 button.onclick = function(e) {
     e.preventDefault();
+    handleLogin();
     if (emailFormat() == true && passwordFormat() == true){
         fetch('https://jsonplaceholder.typicode.com/users?email=' + email.value)
         .then (response => response.json())
@@ -66,5 +67,24 @@ button.onclick = function(e) {
         newError2.textContent = 'Password: ' + password.value;
         newError.style.color = 'blue';
         newError2.style.color = 'blue';
+    }
+}
+
+var handleLogin = function(){
+    var data = {
+        email: email.value,
+        password: password.value
+    }
+    if (emailFormat() == true && passwordFormat() == true){
+        fetch('http://localhost:4000/login', {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            }  
+        })
+        .then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response))
     }
 }

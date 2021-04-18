@@ -52,7 +52,6 @@ var requiredFields2 = function() {
 }
 requiredFields2();
 
-
 var foundLabel1 = function() {
     if (document.querySelector('.label1')) {
       return true;
@@ -115,10 +114,9 @@ var correctLink = function(){
 }
 correctLink();
 
-
-var validateAll = function() {
+function validateAll() {
     if ((foundForm() == true) && (amountInputs() == true) && (requiredFields1() == true) && (requiredFields2() == true) && (foundLabel1() == true) && (foundLabel2() == true) && (foundLoginButton() == true) && (contentButton() == true) && (correctLink() == true)){
-    var newError = validations2.appendChild(document.createElement('li'));
+        var newError = validations2.appendChild(document.createElement('li'));
         newError.textContent = 'Every validation has passed';
         newError.style.color = 'green';
     }

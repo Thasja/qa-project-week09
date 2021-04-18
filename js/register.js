@@ -77,9 +77,6 @@ var requiredFields4 = function() {
 }
 requiredFields4();
 
-
-
-
 var foundLabel1 = function() {
   if (document.querySelector('.label1')) {
     return true;
@@ -156,21 +153,23 @@ contentResetButton();
 var contentSubmitButton = function() {
   var submitButton = document.querySelector('.submit-button').textContent;
   if (submitButton == 'Submit'){
-      return true;
+    return true;
   }
   else {
-      var newError = validations.appendChild(document.createElement('li'));
-      newError.textContent = 'Incorrect content Submit button';
-      newError.style.color = 'red';
+    var newError = validations.appendChild(document.createElement('li'));
+    newError.textContent = 'Incorrect content Submit button';
+    newError.style.color = 'red';
   }
 }
 contentSubmitButton();
 
 var validateAll = function(){
-  if (foundForm() == true && amountInputs() == true && requiredFields1() == true && requiredFields2() == true && requiredFields3() == true && requiredFields4() == true && foundLabel1() == true && foundLabel2() == true && foundLabel3() == true && foundLabel4() == true && foundSubmitButton() == true && contentResetButton() == true && contentSubmitButton() == true) {
+  if (foundForm() == true && amountInputs() == true && requiredFields1() == true && requiredFields2()   == true && requiredFields3() == true && requiredFields4() == true && foundLabel1() == true && foundLabel2() == true && foundLabel3() == true && foundLabel4() == true && foundSubmitButton() == true && contentResetButton() == true && contentSubmitButton() == true) {
     var newError = validations.appendChild(document.createElement('div'));
     newError.textContent = 'Every validation has passed';
     newError.style.color = 'green';
+    
   }
+  return;
 }
 validateAll();

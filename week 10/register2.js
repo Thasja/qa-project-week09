@@ -107,6 +107,7 @@ passConfirm.addEventListener('blur', function(e){
 
 button.onclick = function(e) {
     e.preventDefault();
+    handleRegister();
     if (emailFormat() == true && nameFormat() == true && passwordFormat() == true && passConfirmFormat() == true){
         fetch('https://jsonplaceholder.typicode.com/users?email=' + email.value)
         .then (response => response.json())
@@ -123,5 +124,25 @@ button.onclick = function(e) {
         newError2.style.color = 'blue';
         newError3.style.color = 'blue';
         newError4.style.color = 'blue';
+    }
+}
+
+var handleRegister = function(){
+    var data = {
+        fullName: fullName.value,
+        email: email.value,
+        password: password.value
+    }
+    if (emailFormat() == true && nameFormat() == true && passwordFormat() == true && passConfirmFormat() == true){
+        fetch('http://localhost:4000/register', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            }  
+        })
+        .then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => console.log('Success:', response))
     }
 }
