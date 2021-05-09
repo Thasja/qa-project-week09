@@ -1,4 +1,4 @@
-var email = document.querySelector('#login-email-input');
+var email = document.querySelector('#loginEmailInput');
 var password = document.querySelector('#login-password-input');
 var emailError = document.querySelector('#emailError');
 var passError = document.querySelector('#passwordError');
@@ -78,6 +78,7 @@ var handleLogin = function(){
     if (emailFormat() == true && passwordFormat() == true){
         fetch('http://localhost:4000/login', {
             method: 'PUT',
+            mode: 'cors',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',

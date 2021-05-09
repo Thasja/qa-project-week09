@@ -27,7 +27,7 @@ var amountInputs = function() {
 amountInputs();
 
 var requiredFields1 = function() {
-var required1 = document.getElementById('login-email-input');
+var required1 = document.getElementById('loginEmailInput');
     if (required1.hasAttribute('required')) {
       return true;
     }

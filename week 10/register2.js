@@ -136,6 +136,7 @@ var handleRegister = function(){
     if (emailFormat() == true && nameFormat() == true && passwordFormat() == true && passConfirmFormat() == true){
         fetch('http://localhost:4000/register', {
             method: 'POST',
+            mode: 'cors',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
